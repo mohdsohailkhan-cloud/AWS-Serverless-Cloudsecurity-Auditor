@@ -8,7 +8,7 @@ s3 = boto3.client('s3')
 sns = boto3.client('sns')
 
 S3_BUCKET = "cloud-compliance-reports-AWS"
-SNS_TOPIC_ARN = "YOUR_SNS_TOPIC_ARN"
+SNS_TOPIC_ARN = "compliance-alert-topic"
 
 def check_security_groups():
     findings = []
