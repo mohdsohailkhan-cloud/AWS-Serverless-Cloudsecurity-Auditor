@@ -71,9 +71,9 @@ SNS (Alert Notification)
 - Add severity classification
 - Add auto-remediation
 - Convert infrastructure to Terraform
-- Multi-account scannin88g using AssumeRole
+- Multi-account scanning using AssumeRole
 
 
 ## Author
 
-Sohail Khan
+Mohammad Sohail Khan
