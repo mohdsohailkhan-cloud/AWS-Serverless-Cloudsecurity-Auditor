@@ -1,0 +1,108 @@
+# Cloud Compliance Auditor on AWS
+
+A production-oriented, serverless cloud security auditing solution built on AWS to automatically assess infrastructure compliance, generate reports, and trigger alerts.
+
+---
+
+## Summary
+
+Cloud Compliance Auditor is a serverless security assessment framework designed to evaluate AWS infrastructure against foundational security best practices.
+
+The solution automatically:
+
+- Scans IAM configurations
+- Audits EC2 security groups
+- Validates EBS encryption settings
+- Generates structured compliance reports
+- Stores reports in Amazon S3
+- Sends alert notifications via Amazon SNS
+
+---
+
+## Business Objective
+
+The objective of this project is to automate cloud security validation and reduce manual audit effort.
+
+The system ensures early detection of misconfigurations such as:
+
+- Publicly exposed ports
+- Unencrypted storage volumes
+- Missing MFA enforcement
+
+This minimizes security risk and improves governance posture.
+
+---
+
+## System Architecture Overview
+
+The solution follows a fully serverless, event-driven architecture:
+
+- **AWS Lambda** – Core compliance scanning engine (Python + boto3)
+- **Amazon EventBridge** – Scheduled execution (cron-based trigger)
+- **Amazon S3** – Secure storage for compliance reports
+- **Amazon SNS** – Real-time alert notifications
+- **AWS IAM** – Least-privilege role-based access control
+- **Amazon CloudWatch Logs** – Execution logging and debugging
+
+---
+
+## Functional Capabilities
+
+### Security Group Exposure Detection
+- Detects ports 22 (SSH) and 3389 (RDP) open to `0.0.0.0/0`
+
+### EBS Encryption Validation
+- Identifies unencrypted volumes
+
+### IAM MFA Enforcement
+- Flags IAM users without MFA enabled
+
+### Automated Report Generation
+- Timestamped text-based compliance report
+- Stored securely in S3
+
+### Real-Time Alerts
+- SNS notifications triggered when findings exist
+
+### Scheduled Execution
+- Fully automated using EventBridge cron rules
+
+---
+
+## Security & Governance Controls
+
+- Principle of Least Privilege applied to Lambda execution role
+- IAM role-based authentication (no hardcoded credentials)
+- Encrypted data at rest in S3
+- Event-driven architecture reducing attack surface
+- Structured severity-based findings classification
+
+---
+
+## SDLC Methodology Followed
+
+- **Requirement Analysis** – Defined compliance scope and detection logic
+- **System Design** – Designed event-driven serverless architecture
+- **Implementation** – Developed compliance engine in Python using boto3
+- **Testing** – Validated detection logic with controlled misconfigurations
+- **Deployment** – Configured IAM roles and AWS services via Console
+- **Monitoring & Optimization** – Used CloudWatch Logs for debugging and performance tuning
+
+---
+
+## Technical Stack
+
+- **Programming Language:** Python 3.
+- **SDK:** boto3
+- **Cloud Platform:** Amazon Web Services (AWS)
+- **Services Used:**
+  - AWS Lambda
+  - Amazon EC2
+  - Amazon IAM
+  - Amazon S3
+  - Amazon SNS
+  - Amazon EventBridge
+  - Amazon CloudWatch Logs
+- **Architecture Model:** Serverless
+
+---
